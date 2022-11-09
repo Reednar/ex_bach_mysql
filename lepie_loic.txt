@@ -41,7 +41,7 @@ FROM film f
 INNER JOIN genre g ON g.id = f.genre_id 
 WHERE g.nom = 'comedy';
 
-#11 SELECT f.titre AS 'titre', f.date_debut_affiche AS 'date_debut_affiche', f.date_fin_affiche AS 'date_fin_affiche', TIMEDIFF(f.date_fin_affiche, f.date_debut_affiche) AS "temps_affiche" 
+#11 SELECT f.titre AS 'titre', f.date_debut_affiche AS 'date_debut_affiche', f.date_fin_affiche AS 'date_fin_affiche', TIMESTAMPDIFF(hour, f.date_fin_affiche, f.date_debut_affiche) AS "temps_affiche" 
 FROM film f 
 WHERE f.date_debut_affiche IS NOT NULL OR f.date_fin_affiche IS NOT NULL;
 
